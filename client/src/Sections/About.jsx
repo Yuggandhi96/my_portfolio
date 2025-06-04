@@ -10,46 +10,27 @@ const About = () => {
           subtitle="Get to know more about my background and what drives me"
         />
         
-        <div className="flex flex-col md:flex-row gap-8 items-center">
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
           <motion.div 
-            className="w-full md:w-1/2"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary to-accent rounded-lg blur opacity-20"></div>
-              <div className="relative bg-white dark:bg-gray-800 rounded-lg overflow-hidden p-1">
-                <img 
-                  src="/src/assets/about.jpg" 
-                  alt="About Me" 
-                  className="w-full rounded-lg" 
-                />
-              </div>
-            </div>
-          </motion.div>
-          
-          <motion.div 
-            className="w-full md:w-1/2"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="w-full"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             <p className="mb-4 text-gray-700 dark:text-gray-300">
-              Hello! I'm a passionate full-stack developer with over 5 years of experience creating robust web applications. I specialize in React for frontend development and Node.js/Express for backend solutions.
+              Hello! I'm an intermediate MERN stack developer passionate about creating web applications. I specialize in building full-stack solutions using MongoDB, Express.js, React, and Node.js.
             </p>
             <p className="mb-4 text-gray-700 dark:text-gray-300">
-              My journey in software development began at University XYZ, where I earned my degree in Computer Science. Since then, I've worked with diverse teams to deliver high-quality projects that solve real-world problems.
+              I'm currently focused on developing responsive and user-friendly web applications while continuously learning and improving my skills in modern web development practices and tools.
             </p>
             <p className="mb-6 text-gray-700 dark:text-gray-300">
-              When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying outdoor activities like hiking and photography.
+              My goal is to create efficient, scalable, and maintainable applications while staying up-to-date with the latest technologies in the MERN stack ecosystem.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a 
-                href="/src/assets/resume.pdf" 
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {/* <a 
+                href="/assets/resume.pdf" 
                 download
                 className="btn btn-primary text-center"
               >
@@ -60,7 +41,7 @@ const About = () => {
                 className="btn btn-outline text-center"
               >
                 My Experience
-              </a>
+              </a> */}
             </div>
           </motion.div>
         </div>

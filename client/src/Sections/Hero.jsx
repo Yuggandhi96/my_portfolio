@@ -4,7 +4,7 @@ import { FiArrowDown, FiGithub, FiLinkedin } from 'react-icons/fi';
 const Hero = () => {
   return (
     <section id="home" className="pt-24 md:pt-32 pb-16 md:pb-24">
-      <div className="container flex flex-col md:flex-row items-center">
+      <div className="container flex flex-col items-center text-center">
         <div className="w-full md:w-1/2 mb-8 md:mb-0">
           <motion.span
             className="inline-block text-primary font-medium mb-4"
@@ -16,7 +16,7 @@ const Hero = () => {
           </motion.span>
           
           <motion.h1
-            className="font-bold mb-4"
+            className="font-bold mb-4 text-4xl md:text-5xl lg:text-6xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -30,7 +30,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            I build <span className="text-primary">amazing web experiences</span> with modern technologies.
+            I am a <span className="text-primary">MERN Stack Developer</span> passionate about building modern web applications
           </motion.p>
           
           <motion.div
@@ -39,8 +39,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <a href="#contact" className="btn btn-primary">Get in Touch</a>
-            <a href="#projects" className="btn btn-outline">View My Work</a>
+            
           </motion.div>
           
           <motion.div
@@ -49,7 +48,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <a 
+            {/* <a 
               href="https://github.com/yourusername" 
               target="_blank"
               rel="noopener noreferrer"
@@ -66,7 +65,7 @@ const Hero = () => {
               aria-label="LinkedIn"
             >
               <FiLinkedin />
-            </a>
+            </a> */}
           </motion.div>
         </div>
         

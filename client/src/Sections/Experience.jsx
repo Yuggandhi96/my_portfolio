@@ -4,37 +4,37 @@ import ExperienceItem from '../components/ExperienceItem';
 const Experience = () => {
   const experienceData = [
     {
-      period: '2022 - Present',
-      title: 'Senior Full Stack Developer',
-      company: 'Tech Innovations Inc.',
-      location: 'San Francisco, CA',
-      description: 'Leading development of a SaaS platform serving over 50k users. Architected microservices infrastructure and implemented CI/CD pipelines.',
-      technologies: ['React', 'Node.js', 'AWS', 'MongoDB', 'Docker']
+      period: '2024 - Present',
+      title: 'MERN STACK DEVELOPER',
+      company: 'BRANDSMITH WORLDWIDE.',
+      location: 'Narayan Garden Road New Alkapuri, Vadodara',
+      description: 'Developing and maintaining full-stack web applications using MongoDB, Express.js, React, and Node.js. Building responsive user interfaces, RESTful APIs, and implementing authentication systems. Collaborating with teams to deliver high-quality software solutions.',
+      technologies: ['React', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs', 'Git']
     },
-    {
-      period: '2020 - 2022',
-      title: 'Full Stack Developer',
-      company: 'Digital Solutions Ltd.',
-      location: 'Boston, MA',
-      description: 'Developed and maintained web applications for enterprise clients. Improved system performance by 40% through optimization.',
-      technologies: ['React', 'Express.js', 'PostgreSQL', 'Redis', 'TypeScript']
-    },
-    {
-      period: '2018 - 2020',
-      title: 'Frontend Developer',
-      company: 'Creative Web Agency',
-      location: 'Austin, TX',
-      description: 'Built responsive user interfaces for various client projects. Collaborated with designers to implement pixel-perfect designs.',
-      technologies: ['JavaScript', 'React', 'HTML/CSS', 'Styled Components', 'Redux']
-    },
-    {
-      period: '2017 - 2018',
-      title: 'Web Development Intern',
-      company: 'StartUp Hub',
-      location: 'Seattle, WA',
-      description: 'Assisted in development of web applications. Gained hands-on experience with modern web technologies and agile methodologies.',
-      technologies: ['JavaScript', 'HTML/CSS', 'Bootstrap', 'jQuery']
-    }
+    // {
+    //   period: '2020 - 2022',
+    //   title: 'Full Stack Developer',
+    //   company: 'Digital Solutions Ltd.',
+    //   location: 'Boston, MA',
+    //   description: 'Developed and maintained web applications for enterprise clients. Improved system performance by 40% through optimization.',
+    //   technologies: ['React', 'Express.js', 'PostgreSQL', 'Redis', 'TypeScript']
+    // },
+    // {
+    //   period: '2018 - 2020',
+    //   title: 'Frontend Developer',
+    //   company: 'Creative Web Agency',
+    //   location: 'Austin, TX',
+    //   description: 'Built responsive user interfaces for various client projects. Collaborated with designers to implement pixel-perfect designs.',
+    //   technologies: ['JavaScript', 'React', 'HTML/CSS', 'Styled Components', 'Redux']
+    // },
+    // {
+    //   period: '2017 - 2018',
+    //   title: 'Web Development Intern',
+    //   company: 'StartUp Hub',
+    //   location: 'Seattle, WA',
+    //   description: 'Assisted in development of web applications. Gained hands-on experience with modern web technologies and agile methodologies.',
+    //   technologies: ['JavaScript', 'HTML/CSS', 'Bootstrap', 'jQuery']
+    // }
   ];
 
   return (

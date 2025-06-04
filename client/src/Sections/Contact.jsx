@@ -106,7 +106,7 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-1 text-gray-900 dark:text-white">Location</h3>
-                <p className="text-gray-600 dark:text-gray-300">New York, NY, United States</p>
+                <p className="text-gray-600 dark:text-gray-300">UNCHIPOLE SANTRAM MANDIR,  PADRA 391440</p>
               </div>
             </motion.div>
 
@@ -134,18 +134,18 @@ const Contact = () => {
             <motion.div variants={itemVariants} className="mt-12">
               <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Connect With Me</h3>
               <div className="flex space-x-4">
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" 
+                <a href="https://github.com/yuggandhi96" target="_blank" rel="noopener noreferrer" 
                    className="bg-gray-800 p-3 rounded-full text-white hover:bg-gray-700 transition-colors">
                   <FiGithub className="w-6 h-6" />
                 </a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" 
+                {/* <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" 
                    className="bg-blue-700 p-3 rounded-full text-white hover:bg-blue-600 transition-colors">
                   <FiLinkedin className="w-6 h-6" />
-                </a>
-                <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" 
+                </a> */}
+                {/* <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" 
                    className="bg-blue-400 p-3 rounded-full text-white hover:bg-blue-300 transition-colors">
                   <FiTwitter className="w-6 h-6" />
-                </a>
+                </a> */}
               </div>
             </motion.div>
           </motion.div>
@@ -172,7 +172,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                    placeholder="John Doe"
+                    placeholder="xyz"
                   />
                 </div>
                 
@@ -187,7 +187,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-                    placeholder="john@example.com"
+                    placeholder="xyz@example.com"
                   />
                 </div>
                 
@@ -226,8 +226,8 @@ const Contact = () => {
                   onClick={handleWhatsAppRedirect}
                   className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg transition-colors"
                 >
-                  <FaWhatsapp className="w-5 h-5" />
-                  Send via WhatsApp
+                  {/* <FaWhatsapp className="w-5 h-5" /> */}
+                  Connect US
                 </button>
               </form>
             </div>

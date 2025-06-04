@@ -3,10 +3,9 @@ import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './Sections/Hero';
 import About from './Sections/About';
-import Skills from './sections/Skills';
-import Projects from './sections/Projects';
-import Experience from './sections/Experience';
-import Testimonials from './sections/Testimonials';
+import Skills from './Sections/Skills';
+import Projects from './Sections/Projects';
+import Experience from './Sections/Experience';
 import Contact from './Sections/Contact';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
@@ -34,7 +33,6 @@ function App() {
         <Skills />
         <Projects />
         <Experience />
-        <Testimonials />
         <Contact />
       </main>
       <Footer />

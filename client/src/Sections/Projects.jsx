@@ -8,57 +8,30 @@ const Projects = () => {
     {
       title: 'E-Commerce Platform',
       description: 'A full-featured online store with product management, cart functionality, and payment processing.',
-      image: '/src/assets/project1.jpg',
+      image: 'public/project1.png',
       tags: ['React', 'Node.js', 'MongoDB', 'Stripe API'],
-      liveUrl: 'https://example.com/project1',
-      githubUrl: 'https://github.com/yourusername/project1',
+      // liveUrl: 'https://example.com/project1',
+      // githubUrl: 'https://github.com/yourusername/project1',
       category: 'fullstack'
     },
     {
       title: 'Task Management App',
       description: 'A productivity tool for teams to manage tasks, deadlines, and collaborative projects.',
-      image: '/src/assets/project2.jpg',
+      image: 'public/project2.png',
       tags: ['React', 'Redux', 'Express', 'Socket.io'],
-      liveUrl: 'https://example.com/project2',
-      githubUrl: 'https://github.com/yourusername/project2',
+      // liveUrl: 'https://example.com/project2',
+      // githubUrl: 'https://github.com/yourusername/project2',
       category: 'fullstack'
-    },
-    {
-      title: 'Real Estate Listing',
-      description: 'A property listing platform with search functionality, filters, and interactive maps.',
-      image: '/src/assets/project3.jpg',
-      tags: ['React', 'Firebase', 'Google Maps API'],
-      liveUrl: 'https://example.com/project3',
-      githubUrl: 'https://github.com/yourusername/project3',
-      category: 'frontend'
-    },
-    {
-      title: 'Social Media Dashboard',
-      description: 'An analytics dashboard for monitoring social media performance metrics.',
-      image: '/src/assets/project4.jpg',
-      tags: ['React', 'Chart.js', 'Tailwind CSS'],
-      liveUrl: 'https://example.com/project4',
-      githubUrl: 'https://github.com/yourusername/project4',
-      category: 'frontend'
     },
     {
       title: 'API Gateway Service',
       description: 'A microservice gateway for managing API requests, authentication, and rate limiting.',
-      image: '/src/assets/project5.jpg',
+      image: 'public/project3.png',
       tags: ['Node.js', 'Express', 'JWT', 'Redis'],
       liveUrl: null,
-      githubUrl: 'https://github.com/yourusername/project5',
+      // githubUrl: 'https://github.com/yourusername/project5',
       category: 'backend'
     },
-    {
-      title: 'Content Management System',
-      description: 'A custom CMS for creating, editing, and publishing digital content.',
-      image: '/src/assets/project6.jpg',
-      tags: ['React', 'Node.js', 'PostgreSQL', 'AWS S3'],
-      liveUrl: 'https://example.com/project6',
-      githubUrl: 'https://github.com/yourusername/project6',
-      category: 'fullstack'
-    }
   ];
   
   const categories = [
@@ -116,14 +89,14 @@ const Projects = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <a 
+          {/* <a 
             href="https://github.com/yourusername"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-outline"
           >
             View More on GitHub
-          </a>
+          </a> */}
         </motion.div>
       </div>
     </section>

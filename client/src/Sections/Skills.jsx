@@ -8,7 +8,7 @@ const Skills = () => {
       icon: <FiCode />,
       name: 'Frontend Development',
       level: 90,
-      skills: ['React', 'Redux', 'JavaScript (ES6+)', 'TypeScript', 'HTML5/CSS3', 'Tailwind CSS']
+      skills: ['React', 'Redux', 'JavaScript (ES6+)',  'HTML5/CSS3', 'Tailwind CSS']
     },
     {
       icon: <FiServer />,
@@ -25,7 +25,7 @@ const Skills = () => {
     {
       icon: <FiLayout />,
       name: 'UI/UX',
-      level: 75,
+      level: 50,
       skills: ['Responsive Design', 'Figma', 'User Experience', 'Accessibility']
     },
     {

@@ -33,7 +33,10 @@ const Header = () => {
       }`}
     >
       <div className="container flex justify-between items-center">
-        <a href="#home" className="text-2xl font-bold text-primary">Portfolio</a>
+        <a href="#home" className="flex flex-col leading-tight">
+          <span className="text-2xl font-bold text-primary">YUG KACHHIYA</span>
+          <span className="text-sm text-gray-600 dark:text-gray-400">MERN Stack Developer</span>
+        </a>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
@@ -49,24 +52,24 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          <button 
+          {/* <button 
             onClick={toggleTheme}
             className="p-2 rounded-full bg-gray-100 dark:bg-gray-800"
             aria-label="Toggle dark mode"
           >
             {darkMode ? <FiSun className="text-yellow-400" /> : <FiMoon />}
-          </button>
+          </button> */}
         </nav>
         
         {/* Mobile Navigation */}
         <div className="md:hidden flex items-center">
-          <button 
+          {/* <button 
             onClick={toggleTheme}
             className="p-2 mr-2 rounded-full bg-gray-100 dark:bg-gray-800"
             aria-label="Toggle dark mode"
           >
             {darkMode ? <FiSun className="text-yellow-400" /> : <FiMoon />}
-          </button>
+          </button> */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="p-2 text-2xl"
