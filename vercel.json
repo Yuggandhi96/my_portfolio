@@ -24,12 +24,5 @@
       "src": "/(.*)",
       "dest": "client/dist/$1"
     }
-  ],
-  "env": {
-    "MONGODB_URI": "@mongodb_uri",
-    "EMAIL_SERVICE": "@email_service",
-    "EMAIL_USER": "@email_user",
-    "EMAIL_PASS": "@email_pass",
-    "NODE_ENV": "production"
-  }
+  ]
 }
