@@ -8,28 +8,22 @@ const Projects = () => {
     {
       title: 'E-Commerce Platform',
       description: 'A full-featured online store with product management, cart functionality, and payment processing.',
-      image: 'public/project1.png',
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe API'],
-      // liveUrl: 'https://example.com/project1',
-      // githubUrl: 'https://github.com/yourusername/project1',
+      image: '/images/project1.png', // Updated path
+      tags: ['React', 'Node.js', 'MongoDB'],
       category: 'fullstack'
     },
     {
       title: 'Task Management App',
       description: 'A productivity tool for teams to manage tasks, deadlines, and collaborative projects.',
-      image: 'public/project2.png',
+      image: '/images/project2.png', // Updated path
       tags: ['React', 'Redux', 'Express', 'Socket.io'],
-      // liveUrl: 'https://example.com/project2',
-      // githubUrl: 'https://github.com/yourusername/project2',
       category: 'fullstack'
     },
     {
       title: 'API Gateway Service',
       description: 'A microservice gateway for managing API requests, authentication, and rate limiting.',
-      image: 'public/project3.png',
+      image: '/images/project3.png', // Updated path
       tags: ['Node.js', 'Express', 'JWT', 'Redis'],
-      liveUrl: null,
-      // githubUrl: 'https://github.com/yourusername/project5',
       category: 'backend'
     },
   ];
