@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import SectionHeading from '../components/SectionHeading';
 import ProjectCard from '../components/ProjectCard';
 
-// Import images directly
-import ecommerce from '../public/ecommerce.png';
-import taskManager from '../public/taskManager.png';
-import apiGateway from '../public/apiGateway.png';
+// Import images from src/assets
+import ecommerce from '../assets/ecommerce.png';
+import taskManager from '../assets/taskManager.png';
+import apiGateway from '../assets/apiGateway.png';
 
 const Projects = () => {
   const projectsData = [
