@@ -3,31 +3,26 @@ import { motion } from 'framer-motion';
 import SectionHeading from '../components/SectionHeading';
 import ProjectCard from '../components/ProjectCard';
 
-// Import images from src/assets
-import ecommerce from '../assets/ecommerce.png';
-import taskManager from '../assets/taskManager.png';
-import apiGateway from '../assets/apiGateway.png';
-
 const Projects = () => {
   const projectsData = [
     {
       title: 'E-Commerce Platform',
       description: 'A full-featured online store with product management, cart functionality, and payment processing.',
-      image: ecommerce,
+      image: '/project1.png', // Using public folder path
       tags: ['React', 'Node.js', 'MongoDB'],
       category: 'fullstack'
     },
     {
       title: 'Task Management App',
       description: 'A productivity tool for teams to manage tasks, deadlines, and collaborative projects.',
-      image: taskManager,
+      image: '/project2.png', // Using public folder path
       tags: ['React', 'Redux', 'Express', 'Socket.io'],
       category: 'fullstack'
     },
     {
       title: 'API Gateway Service',
       description: 'A microservice gateway for managing API requests, authentication, and rate limiting.',
-      image: apiGateway,
+      image: '/project3.png', // Using public folder path
       tags: ['Node.js', 'Express', 'JWT', 'Redis'],
       category: 'backend'
     },
