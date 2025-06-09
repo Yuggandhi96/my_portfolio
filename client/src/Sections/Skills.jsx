@@ -6,39 +6,33 @@ const Skills = () => {
   const skillsData = [
     {
       icon: <FiCode />,
-      name: 'Frontend Development',
-      level: 90,
-      skills: ['React', 'Redux', 'JavaScript (ES6+)',  'HTML5/CSS3', 'Tailwind CSS']
-    },
-    {
-      icon: <FiServer />,
-      name: 'Backend Development',
-      level: 85,
-      skills: ['Node.js', 'Express.js', 'RESTful APIs', 'GraphQL', 'Authentication/Authorization']
-    },
-    {
-      icon: <FiDatabase />,
-      name: 'Database',
-      level: 80,
-      skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis', 'Mongoose ORM']
+      name: 'Languages & Core Technologies',
+      skills: ['JavaScript', 'TypeScript', 'Python', 'HTML5', 'CSS3']
     },
     {
       icon: <FiLayout />,
-      name: 'UI/UX',
-      level: 50,
-      skills: ['Responsive Design', 'Figma', 'User Experience', 'Accessibility']
+      name: 'Frontend Frameworks & Libraries',
+      skills: ['React', 'Next.js', 'Angular', 'Vue.js']
+    },
+    {
+      icon: <FiServer />,
+      name: 'Backend & Runtime',
+      skills: ['Node.js', 'Express.js', 'REST APIs', 'GraphQL', 'Authentication']
+    },
+    {
+      icon: <FiDatabase />,
+      name: 'Databases',
+      skills: ['MongoDB', 'PostgreSQL', 'MySQL']
     },
     {
       icon: <FiTool />,
-      name: 'DevOps',
-      level: 70,
-      skills: ['Docker', 'CI/CD', 'AWS', 'Heroku', 'Vercel', 'Netlify']
+      name: 'Cloud & DevOps',
+      skills: [ 'Docker',  'Vercel', 'Netlify', 'Heroku']
     },
     {
       icon: <FiGitBranch />,
-      name: 'Tools & Methods',
-      level: 85,
-      skills: ['Git', 'GitHub', 'Agile Methodologies', 'Jira', 'Testing']
+      name: 'Development Tools',
+      skills: ['Git', 'GitHub', 'VS Code', 'Webpack', 'Testing Frameworks']
     }
   ];
 
@@ -46,8 +40,8 @@ const Skills = () => {
     <section id="skills" className="section">
       <div className="container">
         <SectionHeading 
-          title="Skills & Expertise" 
-          subtitle="A comprehensive overview of my technical abilities and domain knowledge"
+          title="Tech Stack" 
+          subtitle="Technologies and tools I work with to build modern applications"
         />
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
