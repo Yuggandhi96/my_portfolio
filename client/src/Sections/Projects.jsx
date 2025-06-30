@@ -28,9 +28,9 @@ const Projects = () => {
     },
     {
       title: 'LEARN STACK',
-      description: 'A Web application for learning web development with interactive tutorials and coding challenges with a Roadmap.',
+      description: 'A Web application that provides a comprehensive learning platform for Web developers with complete Roadmap.',
       image: '/image.png', // Using public folder path
-      tags: ['React.js', 'Express'],
+      tags: ['Node.js', 'Express',],
       category: 'fullstack'
     },
   ];
