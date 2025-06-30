@@ -12,7 +12,7 @@ const Skills = () => {
     {
       icon: <FiLayout />,
       name: 'Frontend Frameworks & Libraries',
-      skills: ['React', 'Next.js', 'Angular', 'Vue.js']
+      skills: ['React', 'Next.js', 'Vue.js']
     },
     {
       icon: <FiServer />,
@@ -27,7 +27,7 @@ const Skills = () => {
     {
       icon: <FiTool />,
       name: 'Cloud & DevOps',
-      skills: [ 'Docker',  'Vercel', 'Netlify', 'Heroku']
+      skills: [ 'Docker',  'Vercel',]
     },
     {
       icon: <FiGitBranch />,

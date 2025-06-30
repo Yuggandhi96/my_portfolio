@@ -26,6 +26,13 @@ const Projects = () => {
       tags: ['Node.js', 'Express', 'JWT', 'Redis'],
       category: 'backend'
     },
+    {
+      title: 'LEARN STACK',
+      description: 'A Web application for learning web development with interactive tutorials and coding challenges with a Roadmap.',
+      image: '/image.png', // Using public folder path
+      tags: ['React.js', 'Express'],
+      category: 'fullstack'
+    },
   ];
   
   const categories = [

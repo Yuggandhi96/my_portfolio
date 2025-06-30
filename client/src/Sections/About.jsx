@@ -19,13 +19,13 @@ const About = () => {
             transition={{ duration: 0.6 }}
           >
             <p className="mb-4 text-gray-700 dark:text-gray-300">
-              Hello! I'm an intermediate MERN stack developer passionate about creating web applications. I specialize in building full-stack solutions using MongoDB, Express.js, React, and Node.js.
+              Hello! I'm an experienced <span className="text-primary font-semibold">MERN Stack Developer</span> with a strong passion for building robust and scalable web applications. My expertise lies in developing end-to-end solutions using MongoDB, Express.js, React, and Node.js.
             </p>
             <p className="mb-4 text-gray-700 dark:text-gray-300">
-              I'm currently focused on developing responsive and user-friendly web applications while continuously learning and improving my skills in modern web development practices and tools.
+              I have a proven track record of delivering high-quality, responsive, and user-centric applications. I enjoy collaborating with cross-functional teams, solving complex problems, and continuously learning new technologies to stay ahead in the fast-evolving web development landscape.
             </p>
             <p className="mb-6 text-gray-700 dark:text-gray-300">
-              My goal is to create efficient, scalable, and maintainable applications while staying up-to-date with the latest technologies in the MERN stack ecosystem.
+              My goal is to create impactful digital experiences by writing clean, maintainable code and following best practices. I am committed to professional growth and always strive to bring value to every project I work on.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
