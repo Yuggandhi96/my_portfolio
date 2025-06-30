@@ -1,4 +1,7 @@
 # Dependencies
+<<<<<<< HEAD
+node_modules/
+=======
 /node_modules
 /.pnp
 .pnp.js
@@ -8,10 +11,53 @@
 /build
 /dist-ssr
 *.local
+>>>>>>> 755d266 (Initial commit)
 
 # Environment variables
 .env
 .env.local
+<<<<<<< HEAD
+.env.*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Build directories
+/client/dist/
+/client/build/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+=======
 .env.development.local
 .env.test.local
 .env.production.local
@@ -44,3 +90,4 @@ logs
 .env.development.local
 .env.test.local
 .env.production.local
+>>>>>>> 755d266 (Initial commit)
