@@ -6,6 +6,14 @@ import ProjectCard from '../components/ProjectCard';
 const Projects = () => {
   const projectsData = [
     {
+      title: 'LEARN STACK',
+      description: 'A Web application that provides a comprehensive learning platform for Web developers with complete Roadmap.',
+      image: '/image.png', // Using public folder path
+      tags: ['Node.js', 'Express',],
+      category: 'fullstack',
+      liveUrl: 'https://learn-stack.vercel.app/' // <-- Add your live link here
+    },
+    {
       title: 'E-Commerce Platform',
       description: 'A full-featured online store with product management, cart functionality, and payment processing.',
       image: '/project1.png', // Using public folder path
@@ -26,13 +34,7 @@ const Projects = () => {
       tags: ['Node.js', 'Express', 'JWT', 'Redis'],
       category: 'backend'
     },
-    {
-      title: 'LEARN STACK',
-      description: 'A Web application that provides a comprehensive learning platform for Web developers with complete Roadmap.',
-      image: '/image.png', // Using public folder path
-      tags: ['Node.js', 'Express',],
-      category: 'fullstack'
-    },
+    
   ];
   
   const categories = [
