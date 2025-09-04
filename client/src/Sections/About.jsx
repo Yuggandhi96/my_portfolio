@@ -100,10 +100,8 @@ const About = () => {
               <p className="text-sm text-gray-600 dark:text-gray-300">Implementing intelligent features and automation</p>
             </div>
           </div>
-
-          {/* Call to Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
-            <motion.a 
+            {/* <motion.a 
               href="/assets/resume.pdf" 
               download
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-md hover:shadow-lg"
@@ -112,7 +110,7 @@ const About = () => {
             >
               <FiDownload className="w-4 h-4" />
               Download Resume
-            </motion.a>
+            </motion.a> */}
             <motion.a 
               href="#experience" 
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white dark:bg-gray-800 text-gray-700 dark:text-white font-medium rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"

@@ -72,22 +72,11 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          
-          {/* Theme Toggle */}
-          <motion.button 
-            onClick={toggleTheme}
-            className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            aria-label="Toggle dark mode"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {darkMode ? <FiSun className="text-yellow-400" /> : <FiMoon />}
-          </motion.button>
         </nav>
         
         {/* Mobile Navigation Toggle */}
         <div className="lg:hidden flex items-center space-x-3">
-          {/* Theme Toggle for Mobile */}
+          {/* Theme Toggle for Mobile
           <motion.button 
             onClick={toggleTheme}
             className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
@@ -95,7 +84,7 @@ const Header = () => {
             whileTap={{ scale: 0.95 }}
           >
             {darkMode ? <FiSun className="text-yellow-400 text-lg" /> : <FiMoon className="text-lg" />}
-          </motion.button>
+          </motion.button> */}
           
           <motion.button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}

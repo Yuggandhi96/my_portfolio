@@ -7,9 +7,27 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 const Hero = () => {
   const canvasRef = useRef(null);
   const [sceneLoaded, setSceneLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if device is mobile on component mount and window resize
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 1024); // lg breakpoint
+    };
+
+    // Initial check
+    checkIfMobile();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', checkIfMobile);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
 
   useEffect(() => {
-    if (!canvasRef.current) return;
+    // Don't initialize 3D scene on mobile devices
+    if (!canvasRef.current || isMobile) return;
 
     // Scene setup
     const scene = new THREE.Scene();
@@ -114,7 +132,7 @@ const Hero = () => {
       window.removeEventListener('resize', handleResize);
       renderer.dispose();
     };
-  }, []);
+  }, [isMobile]); // Re-run effect when isMobile changes
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 pb-12 md:pt-20 md:pb-16">
@@ -127,9 +145,9 @@ const Hero = () => {
       
       <div className="container relative z-10 px-4 max-w-6xl">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12">
-          {/* Text Content */}
+          {/* Text Content - Full width on mobile, half on desktop */}
           <motion.div
-            className="w-full lg:w-1/2 text-center lg:text-left"
+            className={`w-full ${isMobile ? '' : 'lg:w-1/2'} text-center lg:text-left`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
@@ -179,30 +197,33 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.5 }}
             >
+              {/* Social links can be added here */}
             </motion.div>
           </motion.div>
           
-          {/* 3D Model Container */}
-          <motion.div 
-            className="w-full lg:w-1/2 h-64 sm:h-72 md:h-80 lg:h-96 relative mt-8 lg:mt-0"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-          >
-            <canvas 
-              ref={canvasRef} 
-              className="w-full h-full rounded-xl"
-            />
-            
-            {!sceneLoaded && (
-              <div className="absolute inset-0 flex items-center justify-center bg-gray-100/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
-                <div className="flex items-center text-gray-600 dark:text-gray-300 text-sm">
-                  <FiCode className="animate-spin text-blue-600 mr-2" />
-                  <span>Loading 3D Scene...</span>
+          {/* 3D Model Container - Hidden on mobile */}
+          {!isMobile && (
+            <motion.div 
+              className="w-full lg:w-1/2 h-64 sm:h-72 md:h-80 lg:h-96 relative mt-8 lg:mt-0"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              <canvas 
+                ref={canvasRef} 
+                className="w-full h-full rounded-xl"
+              />
+              
+              {!sceneLoaded && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-100/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm">
+                  <div className="flex items-center text-gray-600 dark:text-gray-300 text-sm">
+                    <FiCode className="animate-spin text-blue-600 mr-2" />
+                    <span>Loading 3D Scene...</span>
+                  </div>
                 </div>
-              </div>
-            )}
-          </motion.div>
+              )}
+            </motion.div>
+          )}
         </div>
         
         {/* Scroll indicator */}
