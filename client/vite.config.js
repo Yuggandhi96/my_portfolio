@@ -17,4 +17,19 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    // Option 1: Increase warning limit
+    chunkSizeWarningLimit: 1000,
+
+    // Option 2: Better chunk splitting
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          external: ['three']
+
+        },
+      },
+    },
+  },
 });
