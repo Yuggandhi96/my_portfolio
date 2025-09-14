@@ -21,7 +21,6 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       // External modules (won’t be bundled)
-      external: ['three'],
       output: {
         manualChunks: {
           react: ['react', 'react-dom'],
