@@ -84,13 +84,6 @@ const Header = () => {
         {/* Mobile Navigation */}
         <div className="md:hidden flex items-center gap-2">
           <button 
-            onClick={toggleTheme}
-            className="p-2 rounded-full bg-gray-100 dark:bg-gray-800"
-            aria-label="Toggle dark mode"
-          >
-            {darkMode ? <FiSun className="text-yellow-400" /> : <FiMoon />}
-          </button>
-          <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="p-2 text-2xl"
             aria-label="Toggle menu"
@@ -127,13 +120,6 @@ const Header = () => {
                   </li>
                 ))}
                 <li className="pt-2">
-                  <a 
-                    href="#contact"
-                    className="block w-full text-center py-2 bg-primary text-white rounded-md font-medium"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Contact Me
-                  </a>
                 </li>
               </ul>
             </nav>

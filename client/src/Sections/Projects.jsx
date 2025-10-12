@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { FiExternalLink, FiGithub, FiFilter, FiChevronDown } from 'react-icons/fi';
+import { FiExternalLink, FiGithub } from 'react-icons/fi';
 
 // Import images from public folder
 const projectImages = {
@@ -43,7 +43,7 @@ const Projects = () => {
       description: 'A full-featured online store with product management, cart functionality, and payment processing.',
       image: projectImages.ecommerce,
       tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      category: 'fullstack',
+      category: 'Frontend',
       liveUrl: '#',
     },
     {
@@ -51,7 +51,7 @@ const Projects = () => {
       description: 'A productivity tool for teams to manage tasks, deadlines, and collaborative projects.',
       image: projectImages.taskManager,
       tags: ['React', 'Redux', 'Express', 'Socket.io'],
-      category: 'fullstack',
+      category: 'Frontend',
       liveUrl: '#',
     },
     {
@@ -64,20 +64,8 @@ const Projects = () => {
     },
   ];
   
-  const categories = [
-    { value: 'all', label: 'All Projects' },
-    { value: 'frontend', label: 'Frontend' },
-    { value: 'backend', label: 'Backend' },
-    { value: 'fullstack', label: 'Full Stack' },
-    { value: 'Generative AI', label: 'Generative AI' },
-  ];
-  
-  const [activeCategory, setActiveCategory] = useState('all');
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
-  
-  const filteredProjects = activeCategory === 'all' 
-    ? projectsData 
-    : projectsData.filter(project => project.category === activeCategory);
+  // Show all projects (filtering removed)
+  const filteredProjects = projectsData;
 
   // Animation variants
   const containerVariants = {
@@ -123,71 +111,7 @@ const Projects = () => {
           </p>
         </motion.div>
         
-        {/* Category Filter - Desktop */}
-        <motion.div 
-          className="hidden md:flex justify-center mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <div className="inline-flex p-1 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
-            {categories.map((category) => (
-              <button
-                key={category.value}
-                className={`px-5 py-2 rounded-lg text-sm font-medium transition-all ${
-                  activeCategory === category.value
-                    ? 'bg-blue-600 text-white shadow-md'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                }`}
-                onClick={() => setActiveCategory(category.value)}
-              >
-                {category.label}
-              </button>
-            ))}
-          </div>
-        </motion.div>
-        
-        {/* Category Filter - Mobile */}
-        <motion.div 
-          className="md:hidden mb-6 relative"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <button
-            className="w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200"
-            onClick={() => setIsFilterOpen(!isFilterOpen)}
-          >
-            <div className="flex items-center">
-              <FiFilter className="mr-2" />
-              <span>{categories.find(cat => cat.value === activeCategory)?.label}</span>
-            </div>
-            <FiChevronDown className={`transition-transform ${isFilterOpen ? 'rotate-180' : ''}`} />
-          </button>
-          
-          {isFilterOpen && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 z-10 overflow-hidden">
-              {categories.map((category) => (
-                <button
-                  key={category.value}
-                  className={`w-full text-left px-4 py-3 text-sm font-medium transition-colors ${
-                    activeCategory === category.value
-                      ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
-                      : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                  }`}
-                  onClick={() => {
-                    setActiveCategory(category.value);
-                    setIsFilterOpen(false);
-                  }}
-                >
-                  {category.label}
-                </button>
-              ))}
-            </div>
-          )}
-        </motion.div>
+        {/* Category filter removed - showing all projects */}
         
         {/* Projects Grid */}
         {filteredProjects.length > 0 ? (
@@ -238,16 +162,16 @@ const Projects = () => {
                   </div>
                   
                   {/* Project Content */}
-                  <div className="p-5 flex-grow flex flex-col">
+                  <div className="p-5 flex-grow flex flex-col items-center text-center">
                     <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
                       {project.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 flex-grow">
+                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 flex-grow text-center">
                       {project.description}
                     </p>
                     
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-4 justify-center">
                       {project.tags.map((tag, idx) => (
                         <span 
                           key={idx}
@@ -259,7 +183,7 @@ const Projects = () => {
                     </div>
                     
                     {/* Category Badge */}
-                    <div className="mt-auto pt-3 border-t border-gray-100 dark:border-gray-700">
+                    <div className="mt-auto pt-3 border-t border-gray-100 dark:border-gray-700 flex justify-center">
                       <span className="inline-block px-3 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full">
                         {project.category}
                       </span>
@@ -283,15 +207,7 @@ const Projects = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <a 
-            href="https://github.com/Yuggandhi96"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg shadow hover:shadow-md transition-all border border-gray-200 dark:border-gray-700 hover:translate-y-[-2px]"
-          >
-            <FiGithub className="mr-2" />
-            View More on GitHub
-          </a>
+          {/*   */}
         </motion.div>
       </div>
     </section>

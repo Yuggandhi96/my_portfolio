@@ -22,7 +22,7 @@ const Skills = () => {
     {
       icon: <FiLayout className="text-xl" />,
       name: 'Frontend',
-      skills: ['React', 'Next.js', 'Vue.js', 'Tailwind CSS'],
+      skills: ['React', 'Vue.js', 'Tailwind CSS'],
       color: "bg-purple-500"
     },
     {
@@ -34,13 +34,13 @@ const Skills = () => {
     {
       icon: <FiDatabase className="text-xl" />,
       name: 'Databases',
-      skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis'],
+      skills: ['MongoDB', 'PostgreSQL', 'MySQL'],
       color: "bg-amber-500"
     },
     {
       icon: <FiCloud className="text-xl" />,
       name: 'Cloud & DevOps',
-      skills: ['Docker', 'AWS', 'Vercel', 'CI/CD Pipelines'],
+      skills: ['Docker', 'Vercel', 'CI/CD Pipelines'],
       color: "bg-cyan-500"
     },
     {
@@ -83,17 +83,17 @@ const Skills = () => {
           {skillsData.map((skill, index) => (
             <div 
               key={index}
-              className="group bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 flex flex-col transform hover:-translate-y-1"
+              className="group bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 flex flex-col transform hover:-translate-y-1 text-center"
             >
-              <div className="flex items-center mb-4">
-                <div className={`flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-xl ${skill.color} bg-opacity-10 dark:bg-opacity-20 text-${skill.color.split('-')[1]}-600 dark:text-${skill.color.split('-')[1]}-400 group-hover:bg-opacity-20 group-hover:dark:bg-opacity-30 transition-all duration-300 mr-3`}>
+              <div className="flex flex-col items-center mb-4">
+                <div className={`flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-xl ${skill.color} bg-opacity-10 dark:bg-opacity-20 text-${skill.color.split('-')[1]}-600 dark:text-${skill.color.split('-')[1]}-400 group-hover:bg-opacity-20 group-hover:dark:bg-opacity-30 transition-all duration-300 mb-3`}>
                   {skill.icon}
                 </div>
                 <h3 className="text-base md:text-lg font-semibold text-gray-800 dark:text-white">
                   {skill.name}
                 </h3>
               </div>
-              <div className="flex flex-wrap gap-2 mt-auto">
+              <div className="flex flex-wrap gap-2 mt-auto justify-center">
                 {skill.skills.map((item, idx) => (
                   <span 
                     key={idx}

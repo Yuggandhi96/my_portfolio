@@ -98,9 +98,9 @@ const Experience = () => {
                   <span>{experience.period}</span>
                 </div>
                 
-                {/* Title and Company */}
-                <div className="flex items-start mb-4">
-                  <div className="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg mr-4">
+                {/* Title and Company (center on mobile, left on desktop) */}
+                <div className="flex flex-col md:flex-row items-center md:items-start mb-4 text-center md:text-left">
+                  <div className="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg mb-3 md:mb-0 md:mr-4">
                     <FiBriefcase className="text-blue-600 dark:text-blue-400 text-lg" />
                   </div>
                   <div>
@@ -113,21 +113,21 @@ const Experience = () => {
                   </div>
                 </div>
                 
-                {/* Location */}
-                <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-5">
+                {/* Location (center on mobile) */}
+                <div className="flex items-center justify-center md:justify-start text-sm text-gray-600 dark:text-gray-400 mb-5">
                   <FiMapPin className="mr-2" />
                   <span>{experience.location}</span>
                 </div>
                 
-                {/* Description */}
-                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed border-l-2 border-blue-100 dark:border-blue-900 pl-4">
+                {/* Description (center on mobile) */}
+                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed pl-0 md:pl-4 text-center md:text-left border-l-0 md:border-l-2 md:border-blue-100 dark:md:border-blue-900">
                   {experience.description}
                 </p>
                 
                 {/* Key Achievements */}
                 {experience.achievements && (
                   <div className="mb-6">
-                    <h5 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center">
+                    <h5 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center justify-center md:justify-start">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mr-2"></span>
                       KEY ACHIEVEMENTS
                     </h5>
@@ -142,13 +142,13 @@ const Experience = () => {
                   </div>
                 )}
                 
-                {/* Technologies */}
-                <div>
+                {/* Technologies (center on mobile) */}
+                <div className="flex flex-col items-center md:items-start text-center md:text-left">
                   <div className="flex items-center text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                     <FiCode className="mr-2" />
                     <span>TECHNOLOGIES & SKILLS</span>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                     {experience.technologies.map((tech, idx) => (
                       <span 
                         key={idx}

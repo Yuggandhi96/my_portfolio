@@ -11,7 +11,7 @@ const Footer = () => {
     <footer className="bg-secondary text-white py-12">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          <div className="md:col-span-5">
+          <div className="md:col-span-5 text-left md:text-center">
             <div className="flex items-center gap-2 mb-4">
               {/* <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-blue-600 flex items-center justify-center text-white font-bold">
                 YK
@@ -24,9 +24,9 @@ const Footer = () => {
             </p>
           </div>
           
-          <div className="md:col-span-4 md:col-start-9">
+          <div className="md:col-span-4 md:col-start-9 text-center md:text-left">
             <h4 className="text-lg font-semibold mb-4 text-primary">Connect With Me</h4>
-            <div className="flex space-x-4 mb-6">
+            <div className="flex justify-center md:justify-start space-x-4 mb-6">
               {socialLinks.map((link, index) => (
                 <a 
                   key={index}
@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+  <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between md:justify-center items-center">
           <p className="text-sm text-gray-400 flex items-center">
             <span>&copy; {currentYear} YUG KACHHIYA. All rights reserved.</span>
           </p>

@@ -104,40 +104,40 @@ const Contact = () => {
             viewport={{ once: true }}
             className="space-y-6 md:space-y-8"
           >
-            <motion.div variants={itemVariants} className="flex items-start space-x-4 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
+            <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center md:items-start space-y-3 md:space-y-0 md:space-x-4 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
               <div className="bg-blue-500 p-3 rounded-xl text-white flex-shrink-0">
                 <FiMapPin className="w-5 h-5 md:w-6 md:h-6" />
               </div>
-              <div>
+              <div className="text-center md:text-left">
                 <h3 className="text-lg md:text-xl font-semibold mb-1 text-gray-800 dark:text-white">Location</h3>
                 <p className="text-gray-600 dark:text-gray-300">PADRA, Vadodara</p>
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex items-start space-x-4 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
+            <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center md:items-start space-y-3 md:space-y-0 md:space-x-4 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
               <div className="bg-green-500 p-3 rounded-xl text-white flex-shrink-0">
                 <FiMail className="w-5 h-5 md:w-6 md:h-6" />
               </div>
-              <div>
+              <div className="text-center md:text-left">
                 <h3 className="text-lg md:text-xl font-semibold mb-1 text-gray-800 dark:text-white">Email</h3>
                 <p className="text-gray-600 dark:text-gray-300">gandhiyug158@gmail.com</p>
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex items-start space-x-4 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
+            <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center md:items-start space-y-3 md:space-y-0 md:space-x-4 p-5 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
               <div className="bg-purple-500 p-3 rounded-xl text-white flex-shrink-0">
                 <FiPhone className="w-5 h-5 md:w-6 md:h-6" />
               </div>
-              <div>
+              <div className="text-center md:text-left">
                 <h3 className="text-lg md:text-xl font-semibold mb-1 text-gray-800 dark:text-white">Phone</h3>
                 <p className="text-gray-600 dark:text-gray-300">+91 9023086942</p>
               </div>
             </motion.div>
 
             {/* Social Links */}
-            <motion.div variants={itemVariants} className="mt-8 md:mt-12">
+            <motion.div variants={itemVariants} className="mt-8 md:mt-12 text-center md:text-left">
               <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Connect With Me</h3>
-              <div className="flex space-x-4">
+              <div className="flex justify-center md:justify-start space-x-4">
                 <a href="https://github.com/yuggandhi96" target="_blank" rel="noopener noreferrer" 
                    className="bg-gray-800 p-3 rounded-xl text-white hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-1">
                   <FiGithub className="w-5 h-5 md:w-6 md:h-6" />
