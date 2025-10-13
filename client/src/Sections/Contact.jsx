@@ -32,6 +32,9 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+
+  // Form validation state
+  const [formErrors, setFormErrors] = useState({});
   
   // WhatsApp contact number (without + sign)
   const whatsappNumber = '9023086942';
@@ -43,34 +46,108 @@ const Contact = () => {
       ...prevState,
       [name]: value
     }));
+    
+    // Clear error when user starts typing
+    if (formErrors[name]) {
+      setFormErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
+  };
+
+  // Validate form
+  const validateForm = () => {
+    const errors = {};
+    
+    if (!formData.name.trim()) {
+      errors.name = 'Name is required';
+    }
+    
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = 'Email is invalid';
+    }
+    
+    if (!formData.subject.trim()) {
+      errors.subject = 'Subject is required';
+    }
+    
+    if (!formData.message.trim()) {
+      errors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      errors.message = 'Message should be at least 10 characters long';
+    }
+    
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  // Generate professional WhatsApp message
+  const generateWhatsAppMessage = () => {
+    const currentDate = new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    return `Hello Yug!
+
+I came across your portfolio and would like to discuss a potential collaboration.
+
+*Contact Information:*
+• Name: ${formData.name}
+• Email: ${formData.email}
+
+*Project Details:*
+• Subject: ${formData.subject}
+• Message: ${formData.message}
+
+I'm looking forward to hearing from you regarding this opportunity.
+
+Best regards,
+${formData.name}
+
+*Sent via Portfolio Contact Form on ${currentDate}*`;
   };
 
   // Handle WhatsApp redirect
   const handleWhatsAppRedirect = () => {
-    // Construct message from form data if available
-    let message = `Hello! I'm interested in discussing a potential project with you.`;
-    
-    if (formData.name) {
-      message += ` My name is ${formData.name}.`;
+    // Validate form before proceeding
+    if (!validateForm()) {
+      // Scroll to first error
+      const firstErrorField = Object.keys(formErrors)[0];
+      if (firstErrorField) {
+        document.getElementById(firstErrorField)?.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'center' 
+        });
+      }
+      return;
     }
-    
-    if (formData.subject) {
-      message += ` I'd like to talk about ${formData.subject}.`;
-    }
-    
-    if (formData.message) {
-      message += ` ${formData.message}`;
-    }
-    
-    // Create default message text
-    const defaultMessage = encodeURIComponent(message);
+
+    // Generate professional message
+    const message = generateWhatsAppMessage();
+    const encodedMessage = encodeURIComponent(message);
     
     // Generate WhatsApp URL
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${defaultMessage}`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
     
     // Open in new tab
     window.open(whatsappUrl, '_blank');
+    
+    // Optional: Reset form after successful submission
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    });
   };
+
+  // Check if form is valid for button styling
+  const isFormValid = formData.name && formData.email && formData.subject && formData.message;
 
   return (
     <section id="contact" className="relative py-16 md:py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 overflow-hidden">
@@ -164,7 +241,7 @@ const Contact = () => {
             <form className="space-y-5">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Your Name
+                  Your Name *
                 </label>
                 <input
                   type="text"
@@ -172,14 +249,19 @@ const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white transition-colors ${
+                    formErrors.name ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'
+                  }`}
                   placeholder="Your Name"
                 />
+                {formErrors.name && (
+                  <p className="mt-1 text-sm text-red-500">{formErrors.name}</p>
+                )}
               </div>
               
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Your Email
+                  Your Email *
                 </label>
                 <input
                   type="email"
@@ -187,14 +269,19 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white transition-colors ${
+                    formErrors.email ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'
+                  }`}
                   placeholder="xyz@example.com"
                 />
+                {formErrors.email && (
+                  <p className="mt-1 text-sm text-red-500">{formErrors.email}</p>
+                )}
               </div>
               
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Subject
+                  Subject *
                 </label>
                 <input
                   type="text"
@@ -202,14 +289,19 @@ const Contact = () => {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white transition-colors ${
+                    formErrors.subject ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'
+                  }`}
                   placeholder="Project Inquiry"
                 />
+                {formErrors.subject && (
+                  <p className="mt-1 text-sm text-red-500">{formErrors.subject}</p>
+                )}
               </div>
               
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Your Message
+                  Your Message *
                 </label>
                 <textarea
                   id="message"
@@ -217,26 +309,36 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows="4"
-                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white transition-colors ${
+                    formErrors.message ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'
+                  }`}
                   placeholder="Hello, I'd like to talk about..."
                 ></textarea>
+                {formErrors.message && (
+                  <p className="mt-1 text-sm text-red-500">{formErrors.message}</p>
+                )}
               </div>
               
               <div className="pt-2">
                 <button
                   type="button"
                   onClick={handleWhatsAppRedirect}
-                  className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-0.5 shadow-md hover:shadow-lg"
+                  className={`w-full flex items-center justify-center gap-2 font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-0.5 shadow-md hover:shadow-lg ${
+                    isFormValid 
+                      ? 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white' 
+                      : 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed'
+                  }`}
+                  disabled={!isFormValid}
                 >
                   <FaWhatsapp className="w-5 h-5" />
-                  Connect via WhatsApp
+                  {isFormValid ? 'Connect via WhatsApp' : 'Please fill all fields'}
                 </button>
               </div>
             </form>
             
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                Prefer email? Just send to{' '}
+                * Required fields. Prefer email? Just send to{' '}
                 <a href="mailto:gandhiyug158@gmail.com" className="text-blue-600 dark:text-blue-400 hover:underline">
                   gandhiyug158@gmail.com
                 </a>
