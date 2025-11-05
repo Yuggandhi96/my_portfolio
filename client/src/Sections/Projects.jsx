@@ -10,20 +10,21 @@ const projectImages = {
   taskManager: '/project2.png',
   apiGateway: '/project3.png',
   AIAssistance: '/project6.png',
+  EconlQ: '/project7.png',
 };
 
 const Projects = () => {
   const projectsData = [
     {
-      title: 'LEARN STACK',
-      description: 'A comprehensive learning platform for Web developers with complete Roadmap and interactive tutorials.',
-      image: projectImages.learnStack,
-      tags: ['React', 'Node.js', 'Express', 'MongoDB'],
-      category: 'fullstack',
-      liveUrl: 'https://learn-stack.vercel.app/',
+      title: 'EconlQ — Personal Finance Bot',
+      description: 'A Discord bot that helps users track expenses and incomes, query balances with natural language, and generate visual spending insights. Built with Python, discord.py and MongoDB; includes natural-language parsing, chart generation, and a modular response builder for rich embeds.',
+      image: projectImages.EconlQ,
+      tags: ["Python", "discord.py", "MongoDB", "Motor", "Pandas", "Matplotlib", "Seaborn", "NLP", "Google Gemini ", "Render"],
+      category: 'Chatbot·FinTech',
+      liveUrl: '#',
     },
     {
-      title: 'Generative AI Chatbot',
+      title: 'Orbit_AI-Chatbot',
       description: 'An intelligent chatbot powered by large language models with contextual memory and API integrations.',
       image: projectImages.chatbot,
       tags: ['Gemini 2.5 Flask', 'LangChain', 'React.js', 'MongoDB','Python'],
@@ -31,12 +32,20 @@ const Projects = () => {
       liveUrl: 'https://orbit-ai-six.vercel.app/',
     },
     {
-      title: 'Personal AI Assistance',
+      title: 'Nexus-AI Voice Assistant',
       description: 'enterprise-grade AI assistant that automates complex business processes, leverages data for actionable insights, and streamlines workflows to drive operational efficiency and empower strategic decision-making across the entire organization',
       image: projectImages.AIAssistance,
       tags: ['AI', 'Automation','Python'],
       category: 'Generative AI',
       liveUrl: '#',
+    },
+    {
+      title: 'LEARN STACK',
+      description: 'A comprehensive learning platform for Web developers with complete Roadmap and interactive tutorials.',
+      image: projectImages.learnStack,
+      tags: ['React', 'Node.js', 'Express', 'MongoDB'],
+      category: 'fullstack',
+      liveUrl: 'https://learn-stack.vercel.app/',
     },
     {
       title: 'E-Commerce Platform',
