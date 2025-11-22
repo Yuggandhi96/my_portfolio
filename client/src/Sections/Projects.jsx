@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo, useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
 
@@ -14,14 +14,16 @@ const projectImages = {
 };
 
 const Projects = () => {
-  const projectsData = [
+  const [loadedImages, setLoadedImages] = useState({});
+
+  const projectsData = useMemo(() => [
     {
       title: 'EconlQ — Personal Finance Bot',
       description: 'A Discord bot that helps users track expenses and incomes, query balances with natural language, and generate visual spending insights. Built with Python, discord.py and MongoDB; includes natural-language parsing, chart generation, and a modular response builder for rich embeds.',
       image: projectImages.EconlQ,
       tags: ["Python", "discord.py", "MongoDB", "Motor", "Pandas", "Matplotlib", "Seaborn", "NLP", "Google Gemini ", "Render"],
       category: 'Chatbot·FinTech',
-      liveUrl: '#',
+      // liveUrl: '#',
     },
     {
       title: 'Orbit_AI-Chatbot',
@@ -29,7 +31,7 @@ const Projects = () => {
       image: projectImages.chatbot,
       tags: ['Gemini 2.5 Flask', 'LangChain', 'React.js', 'MongoDB','Python'],
       category: 'Generative AI',
-      liveUrl: 'https://orbit-ai-six.vercel.app/',
+      // liveUrl: 'https://orbit-ai-six.vercel.app/',
     },
     {
       title: 'Nexus-AI Voice Assistant',
@@ -37,7 +39,7 @@ const Projects = () => {
       image: projectImages.AIAssistance,
       tags: ['AI', 'Automation','Python'],
       category: 'Generative AI',
-      liveUrl: '#',
+      // liveUrl: '#',
     },
     {
       title: 'LEARN STACK',
@@ -45,7 +47,7 @@ const Projects = () => {
       image: projectImages.learnStack,
       tags: ['React', 'Node.js', 'Express', 'MongoDB'],
       category: 'fullstack',
-      liveUrl: 'https://learn-stack.vercel.app/',
+      // liveUrl: 'https://learn-stack.vercel.app/',
     },
     {
       title: 'E-Commerce Platform',
@@ -53,7 +55,7 @@ const Projects = () => {
       image: projectImages.ecommerce,
       tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
       category: 'Frontend',
-      liveUrl: '#',
+      // liveUrl: '#',
     },
     {
       title: 'Task Management App',
@@ -61,7 +63,7 @@ const Projects = () => {
       image: projectImages.taskManager,
       tags: ['React', 'Redux', 'Express', 'Socket.io'],
       category: 'Frontend',
-      liveUrl: '#',
+      // liveUrl: '#',
     },
     {
       title: 'API Gateway Service',
@@ -69,47 +71,103 @@ const Projects = () => {
       image: projectImages.apiGateway,
       tags: ['Node.js', 'Express', 'JWT', 'Redis'],
       category: 'backend',
-      liveUrl: '#',
+      // liveUrl: '#',
     },
-  ];
-  
+  ], []);
+
   // Show all projects (filtering removed)
   const filteredProjects = projectsData;
 
-  // Animation variants
+  // Animation variants with reduced motion for better performance
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.15 // Increased stagger for better performance
       }
     }
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 10, opacity: 0 }, // Reduced y movement
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5
+        duration: 0.4, // Slightly reduced duration
+        ease: "easeOut"
       }
     }
   };
 
+  // Handle image load
+  const handleImageLoad = useCallback((index) => {
+    setLoadedImages(prev => ({ ...prev, [index]: true }));
+  }, []);
+
+  // Handle image error
+  const handleImageError = useCallback((e, index) => {
+    e.target.style.display = 'none';
+    e.target.parentNode.classList.add('bg-gradient-to-r', 'from-blue-400', 'to-purple-500');
+    setLoadedImages(prev => ({ ...prev, [index]: true }));
+  }, []);
+
+  // Optimized image component
+  const ProjectImage = React.memo(({ project, index }) => (
+    <div className="relative overflow-hidden h-48 bg-gray-200 dark:bg-gray-700">
+      <img 
+        src={project.image} 
+        alt={project.title}
+        className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${
+          loadedImages[index] ? 'opacity-100' : 'opacity-0'
+        }`}
+        loading="lazy" // Lazy loading for better performance
+        onLoad={() => handleImageLoad(index)}
+        onError={(e) => handleImageError(e, index)}
+      />
+      {!loadedImages[index] && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
+      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center space-x-4 opacity-0 group-hover:opacity-100">
+        {project.liveUrl && project.liveUrl !== '#' && (
+          <a 
+            href={project.liveUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="p-3 bg-white text-gray-800 rounded-full hover:bg-blue-600 hover:text-white transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300"
+          >
+            <FiExternalLink size={18} />
+          </a>
+        )}
+        {project.githubUrl && (
+          <a 
+            href={project.githubUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="p-3 bg-white text-gray-800 rounded-full hover:bg-gray-900 hover:text-white transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300 delay-75"
+          >
+            <FiGithub size={18} />
+          </a>
+        )}
+      </div>
+    </div>
+  ));
+
   return (
     <section id="projects" className="relative py-16 md:py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-72 h-72 bg-blue-200 dark:bg-blue-900/20 rounded-full translate-x-1/2 -translate-y-1/2 opacity-50 blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-200 dark:bg-purple-900/20 rounded-full -translate-x-1/3 translate-y-1/3 opacity-50 blur-3xl"></div>
+      {/* Decorative elements - reduced blur for better performance */}
+      <div className="absolute top-0 right-0 w-72 h-72 bg-blue-200 dark:bg-blue-900/20 rounded-full translate-x-1/2 -translate-y-1/2 opacity-30 blur-2xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-200 dark:bg-purple-900/20 rounded-full -translate-x-1/3 translate-y-1/3 opacity-30 blur-2xl"></div>
       
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <motion.div 
           className="text-center mb-12 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }} // Reduced margin for earlier trigger
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
@@ -120,8 +178,6 @@ const Projects = () => {
           </p>
         </motion.div>
         
-        {/* Category filter removed - showing all projects */}
-        
         {/* Projects Grid */}
         {filteredProjects.length > 0 ? (
           <motion.div 
@@ -129,46 +185,13 @@ const Projects = () => {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }} // Reduced margin for better performance
           >
             {filteredProjects.map((project, index) => (
               <motion.div key={index} variants={itemVariants}>
                 <div className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 h-full flex flex-col">
                   {/* Project Image */}
-                  <div className="relative overflow-hidden h-48">
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      onError={(e) => {
-                        // Fallback to gradient background if image fails to load
-                        e.target.style.display = 'none';
-                        e.target.parentNode.classList.add('bg-gradient-to-r', 'from-blue-400', 'to-purple-500');
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center space-x-4 opacity-0 group-hover:opacity-100">
-                      {project.liveUrl && project.liveUrl !== '#' && (
-                        <a 
-                          href={project.liveUrl} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="p-3 bg-white text-gray-800 rounded-full hover:bg-blue-600 hover:text-white transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300"
-                        >
-                          <FiExternalLink size={18} />
-                        </a>
-                      )}
-                      {project.githubUrl && (
-                        <a 
-                          href={project.githubUrl} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="p-3 bg-white text-gray-800 rounded-full hover:bg-gray-900 hover:text-white transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300 delay-75"
-                        >
-                          <FiGithub size={18} />
-                        </a>
-                      )}
-                    </div>
-                  </div>
+                  <ProjectImage project={project} index={index} />
                   
                   {/* Project Content */}
                   <div className="p-5 flex-grow flex flex-col items-center text-center">
@@ -213,7 +236,7 @@ const Projects = () => {
           className="text-center mt-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           {/*   */}
@@ -223,4 +246,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default React.memo(Projects);
